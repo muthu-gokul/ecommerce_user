@@ -12,7 +12,7 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 80,
-      width: SizeConfig.screenWidth,
+      // width: SizeConfig.screenWidth,
       child: Row(
         children: [
           GestureDetector(
@@ -23,7 +23,7 @@ class CustomAppBar extends StatelessWidget {
                 height:50,
                 width:50,
                 color: Colors.transparent,
-                child: Icon(Icons.arrow_back_ios_new_outlined,color: text1,)
+                child: Icon(Icons.arrow_back_ios_new_outlined,color: text1,size: 20,)
             ),
           ),
           Text(title,style: ts16(text1,fontfamily: 'RM'),)

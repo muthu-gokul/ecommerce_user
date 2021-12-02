@@ -1,4 +1,5 @@
 import 'package:ecommerce_user/notifiers/themeNotifier.dart';
+import 'package:ecommerce_user/pages/Profile/myProfile.dart';
 import 'package:ecommerce_user/styles/constants.dart';
 import 'package:ecommerce_user/styles/size.dart';
 import 'package:ecommerce_user/widgets/bottomPainter.dart';
@@ -106,6 +107,15 @@ class _MasterpageState extends State<Masterpage> {
                     scaffoldkey.currentState!.openEndDrawer();
                   },
                 ),
+                DrawerContent(
+                  title: 'Profile',
+                  ontap: (){
+                    setState(() {
+                      menuSel=5;
+                    });
+                    scaffoldkey.currentState!.openEndDrawer();
+                  },
+                ),
                  Spacer(),
                 DrawerContent(
                   title: 'LogOut',
@@ -132,6 +142,11 @@ class _MasterpageState extends State<Masterpage> {
               scaffoldkey.currentState!.openDrawer();
             },
           ) :menuSel==4?OfferPage (
+            voidCallback:(){
+
+              scaffoldkey.currentState!.openDrawer();
+            },
+          )  :menuSel==5?MyProfile (
             voidCallback:(){
 
               scaffoldkey.currentState!.openDrawer();
