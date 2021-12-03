@@ -95,13 +95,108 @@ class _OrderNoDetailsState extends State<OrderNoDetails> {
                    SizedBox(height:10,),
                   Container(
                     margin: EdgeInsets.only(bottom: 10),
-                    width: width*0.95,
-                    height:80,
+                    width: width*0.90,
+                    padding: EdgeInsets.only(left: 10,right: 10),
+                    height:90,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       color: Color(0xffffffff),
                     ) ,
-                      child:Container(),
+                    child: Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            width: width*0.75,
+                            height: 3,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30.0),
+                              // border: Border.all(color: Color(0xffEBEBEB)),
+                              color: Color(0xffDCDCDC),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Container(
+                            width: width*0.4,
+                            height: 3,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30.0),
+                              // border: Border.all(color: Color(0xffEBEBEB)),
+                              color: Color(0xffEFBD55),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            width: width*0.95,
+                            height: 30,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  width:30 ,
+                                  height:30 ,
+                                  decoration: BoxDecoration(
+                                    //   color: Color(0xffE8485A),
+                                      color: Color(0xffEFBD55),
+                                      shape: BoxShape.circle,
+                                    border: Border.all(color: text2,width: 2)
+                                  ),
+                                  child: Icon(Icons.menu,color: Colors.white,size: 10,),
+                                ),
+                                Container(
+                                  width:30 ,
+                                  height:30 ,
+                                  decoration: BoxDecoration(
+                                    //   color: Color(0xffE8485A),
+                                      color: Color(0xffEFBD55),
+                                      shape: BoxShape.circle,
+                                      border: Border.all(color: text2,width: 2)
+                                  ),
+                                  child: Icon(Icons.menu,color: Colors.white,size: 10,),
+                                ),
+                                Container(
+                                  width:25 ,
+                                  height:25 ,
+                                  decoration: BoxDecoration(
+                                    //   color: Color(0xffE8485A),
+                                      color:text2,
+                                      shape: BoxShape.circle,
+                                      border:Border.all(color:Color(0xffDCDCDC) ,width: 2)
+                                  ),
+                                ),
+                                Container(
+                                  width:25 ,
+                                  height:25 ,
+                                  decoration: BoxDecoration(
+                                    //   color: Color(0xffE8485A),
+                                      color:text2,
+                                      shape: BoxShape.circle,
+                                      border:Border.all(color:Color(0xffDCDCDC) ,width: 2)
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          width: width*0.85,
+                          bottom: 10,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Confirmed',style:TextStyle(color: Color(0xffEFBD55),fontSize: 14,fontFamily:'RR',)),
+                              Text('Cooking',style:TextStyle(color: Color(0xffBFBFBF),fontSize: 14,fontFamily:'RR',)),
+                              Text('Ontheway',style:TextStyle(color: Color(0xffBFBFBF),fontSize: 14,fontFamily:'RR',)),
+                              Text('Delivered',style:TextStyle(color: Color(0xffBFBFBF),fontSize: 14,fontFamily:'RR',)),
+                            ],
+                          ),
+                        ),
+                        ],
+                    ),
                   ),
                     Align(
                       alignment: Alignment.center,
@@ -201,7 +296,7 @@ class _OrderNoDetailsState extends State<OrderNoDetails> {
                                 ],
                               ),
                             ),
-                            SizedBox(height: 40,),
+                            SizedBox(height: 20,),
                             Container(
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,

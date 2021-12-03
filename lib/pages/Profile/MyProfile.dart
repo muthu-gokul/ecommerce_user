@@ -1,5 +1,7 @@
 
 import 'package:ecommerce_user/notifiers/themeNotifier.dart';
+import 'package:ecommerce_user/pages/address/addressHome.dart';
+import 'package:ecommerce_user/pages/giftCoupons/giftCouponsPage.dart';
 import 'package:ecommerce_user/pages/profile/myProfileEdit.dart';
 import 'package:ecommerce_user/pages/Profile/superCoin.dart';
 import 'package:ecommerce_user/pages/pancard/panCard.dart';
@@ -152,14 +154,20 @@ class _MyProfileState extends State<MyProfile> {
                             Text('My Wishlist',style:ts14(text1,fontfamily: 'RR',),),
                           ],
                         ),
-                      ),Container(
-                        width: 90,
-                        child: Column(
-                          children: [
-                            Icon(Icons.add_location_outlined,color:tn.primaryColor,size: 40,),
-                            SizedBox(height: 5,),
-                            Text('My Wishlist',style:ts14(text1,fontfamily: 'RR',),),
-                          ],
+                      ),
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (ctx)=>GiftCouponsPage()));
+                        },
+                        child: Container(
+                          width: 90,
+                          child: Column(
+                            children: [
+                              Icon(Icons.add_location_outlined,color:tn.primaryColor,size: 40,),
+                              SizedBox(height: 5,),
+                              Text('Gift&Coupons',style:ts14(text1,fontfamily: 'RR',),),
+                            ],
+                          ),
                         ),
                       ),
                       Container(
@@ -182,14 +190,19 @@ class _MyProfileState extends State<MyProfile> {
                           ],
                         ),
                       ),
-                      Container(
-                        width: 90,
-                        child: Column(
-                          children: [
-                            Icon(Icons.add_location_outlined,color:tn.primaryColor,size: 40,),
-                            SizedBox(height: 5,),
-                            Text('My Address',style:ts14(text1,fontfamily: 'RR',),),
-                          ],
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (ctx)=>AddressHomePage()));
+                        },
+                        child: Container(
+                          width: 90,
+                          child: Column(
+                            children: [
+                              Icon(Icons.add_location_outlined,color:tn.primaryColor,size: 40,),
+                              SizedBox(height: 5,),
+                              Text('My Address',style:ts14(text1,fontfamily: 'RR',),),
+                            ],
+                          ),
                         ),
                       ),
                       GestureDetector(
