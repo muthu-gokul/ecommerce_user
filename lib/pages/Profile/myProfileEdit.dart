@@ -44,7 +44,7 @@ class _MyProfileEditState extends State<MyProfileEdit> {
                        child:Row(
                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                          children: [
-                           CustomAppBar(title: "My Profile",),
+                           CustomAppBar(title: "My profile",),
                            Padding(
                              padding: EdgeInsets.only(right: 8.0),
                              child: Icon(Icons.edit,color:tn.primaryColor,),

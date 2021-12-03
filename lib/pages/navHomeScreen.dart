@@ -1,5 +1,6 @@
 import 'package:ecommerce_user/notifiers/themeNotifier.dart';
-import 'package:ecommerce_user/pages/Profile/myProfile.dart';
+import 'package:ecommerce_user/pages/myOrder/myOrderDetails.dart';
+import 'package:ecommerce_user/pages/profile/myProfile.dart';
 import 'package:ecommerce_user/styles/constants.dart';
 import 'package:ecommerce_user/styles/size.dart';
 import 'package:ecommerce_user/widgets/bottomPainter.dart';
@@ -116,6 +117,15 @@ class _MasterpageState extends State<Masterpage> {
                     scaffoldkey.currentState!.openEndDrawer();
                   },
                 ),
+                DrawerContent(
+                  title: 'My Orders',
+                  ontap: (){
+                    setState(() {
+                      menuSel=6;
+                    });
+                    scaffoldkey.currentState!.openEndDrawer();
+                  },
+                ),
                  Spacer(),
                 DrawerContent(
                   title: 'LogOut',
@@ -147,6 +157,11 @@ class _MasterpageState extends State<Masterpage> {
               scaffoldkey.currentState!.openDrawer();
             },
           )  :menuSel==5?MyProfile (
+            voidCallback:(){
+
+              scaffoldkey.currentState!.openDrawer();
+            },
+          )  :menuSel==6?MYOrderDetails (
             voidCallback:(){
 
               scaffoldkey.currentState!.openDrawer();

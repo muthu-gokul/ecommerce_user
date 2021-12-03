@@ -1,6 +1,6 @@
 
 import 'package:ecommerce_user/notifiers/themeNotifier.dart';
-import 'package:ecommerce_user/pages/Profile/myProfileEdit.dart';
+import 'package:ecommerce_user/pages/profile/myProfileEdit.dart';
 import 'package:ecommerce_user/pages/Profile/superCoin.dart';
 import 'package:ecommerce_user/pages/pancard/panCard.dart';
 import 'package:ecommerce_user/styles/constants.dart';
@@ -50,7 +50,7 @@ class _MyProfileState extends State<MyProfile> {
                      child:Row(
                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                        children: [
-                         CustomAppBar(title: "My Profile",),
+                         CustomAppBar(title: "My profile",),
                          GestureDetector(
                            onTap: (){
                               Navigator.push(context, MaterialPageRoute(builder: (ctx)=>MyProfileEdit()));
