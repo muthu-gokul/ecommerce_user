@@ -1,4 +1,5 @@
 
+import 'package:ecommerce_user/model/profileModel.dart';
 import 'package:ecommerce_user/notifiers/themeNotifier.dart';
 import 'package:ecommerce_user/pages/address/addressHome.dart';
 import 'package:ecommerce_user/pages/giftCoupons/giftCouponsPage.dart';
@@ -10,6 +11,7 @@ import 'package:ecommerce_user/styles/size.dart';
 import 'package:ecommerce_user/widgets/customAppBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import '../card/card.dart';
@@ -23,6 +25,18 @@ class MyProfile extends StatefulWidget {
 }
 
 class _MyProfileState extends State<MyProfile> {
+  List<ProfileModel> list=[
+    ProfileModel(img: "assets/side-icon/settings.svg", title: "My Order"),
+    ProfileModel(img: "assets/side-icon/settings.svg", title: "My Wishlist"),
+    ProfileModel(img: "assets/side-icon/settings.svg", title: "Gift & Coupons"),
+    ProfileModel(img: "assets/side-icon/settings.svg", title: "My Review"),
+    ProfileModel(img: "assets/side-icon/settings.svg", title: "Qus & Ans"),
+    ProfileModel(img: "assets/side-icon/settings.svg", title: "My Address"),
+    ProfileModel(img: "assets/side-icon/settings.svg", title: "My Cards"),
+    ProfileModel(img: "assets/side-icon/settings.svg", title: "Pan Card"),
+    ProfileModel(img: "assets/side-icon/settings.svg", title: "Super Coins"),
+    ProfileModel(img: "assets/side-icon/settings.svg", title: "Logout"),
+  ];
   @override
   late  double width,height,width2,height2;
   Widget build(BuildContext context) {
@@ -144,131 +158,54 @@ class _MyProfileState extends State<MyProfile> {
                     runSpacing: 30,
                     spacing: 40,
                     children: [
-                      Container(
-                        width: 90,
-                        child: Column(
-                          children: [
-                            Icon(Icons.add_location_outlined,color:tn.primaryColor,size: 40,),
-                            SizedBox(height: 5,),
-                            Text('My Order',style:ts14(text1,fontfamily: 'RR',),),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: 90,
-                        child: Column(
-                          children: [
-                            Icon(Icons.add_location_outlined,color:tn.primaryColor,size: 40,),
-                            SizedBox(height: 5,),
-                            Text('My Wishlist',style:ts14(text1,fontfamily: 'RR',),),
-                          ],
-                        ),
-                      ),
+                      for(int i=0;i<list.length;i++)
                       GestureDetector(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (ctx)=>GiftCouponsPage()));
+                        onTap:(){
+                          if(i==0){
+
+                          }
+                          else if(i==1){
+
+                          }
+                          else if(i==2){
+                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=>GiftCouponsPage()));
+                          }
+                          else if(i==3){
+
+                          }
+                          else if(i==4){
+                          }
+                          else if(i==5){
+                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=>AddressHomePage()));
+                          }
+                          else if(i==6){
+                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=>CardDetails()));
+                          }
+                          else if(i==7){
+                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=>PanCardDetails()));
+                          }
+                          else if(i==8){
+                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=>SuperCoins()));
+                          }
+                          else if(i==9){
+
+                          }
                         },
                         child: Container(
                           width: 90,
+                          color: Colors.transparent,
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.add_location_outlined,color:tn.primaryColor,size: 40,),
+                              SvgPicture.asset(list[i].img,height: list[i].imgHeight,color: tn.primaryColor1,),
+                             // Icon(Icons.add_location_outlined,color:tn.primaryColor,size: 40,),
                               SizedBox(height: 5,),
-                              Text('Gift&Coupons',style:ts14(text1,fontfamily: 'RR',),),
+                              Text(list[i].title,style:ts18(text1,fontfamily: 'RR',fontsize: 13),),
                             ],
                           ),
                         ),
                       ),
-                      Container(
-                        width: 90,
-                        child: Column(
-                          children: [
-                            Icon(Icons.add_location_outlined,color:tn.primaryColor,size: 40,),
-                            SizedBox(height: 5,),
-                            Text('My Review',style:ts14(text1,fontfamily: 'RR',),),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: 90,
-                        child: Column(
-                          children: [
-                            Icon(Icons.add_location_outlined,color:tn.primaryColor,size: 40,),
-                            SizedBox(height: 5,),
-                            Text('Qus & Ans',style:ts14(text1,fontfamily: 'RR',),),
-                          ],
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (ctx)=>AddressHomePage()));
-                        },
-                        child: Container(
-                          width: 90,
-                          child: Column(
-                            children: [
-                              Icon(Icons.add_location_outlined,color:tn.primaryColor,size: 40,),
-                              SizedBox(height: 5,),
-                              Text('My Address',style:ts14(text1,fontfamily: 'RR',),),
-                            ],
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (ctx)=>CardDetails()));
-                        },
-                        child: Container(
-                          width: 90,
-                          child: Column(
-                            children: [
-                              Icon(Icons.add_location_outlined,color:tn.primaryColor,size: 40,),
-                              SizedBox(height: 5,),
-                              Text('My Cards',style:ts14(text1,fontfamily: 'RR',),),
-                            ],
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (ctx)=>PanCardDetails()));
-                        },
-                        child: Container(
-                          width: 90,
-                          child: Column(
-                            children: [
-                              Icon(Icons.add_location_outlined,color:tn.primaryColor,size: 40,),
-                              SizedBox(height: 5,),
-                              Text('Pan Card',style:ts14(text1,fontfamily: 'RR',),),
-                            ],
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (ctx)=>SuperCoins()));
-                        },
-                        child: Container(
-                          width: 90,
-                          child: Column(
-                            children: [
-                              Icon(Icons.add_location_outlined,color:tn.primaryColor,size: 40,),
-                              SizedBox(height: 5,),
-                              Text('Super Coins',style:ts14(text1,fontfamily: 'RR',),),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 90,
-                        child: Column(
-                          children: [
-                            Icon(Icons.add_location_outlined,color:tn.primaryColor,size: 40,),
-                            SizedBox(height: 5,),
-                            Text('Logout',style:ts14(text1,fontfamily: 'RR',),),
-                          ],
-                        ),
-                      ),
+
                     ],
                   ),
                 ),
