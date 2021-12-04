@@ -15,6 +15,7 @@ const Color addNewTextFieldFocusBorder=Color(0xFF6B6B6B);
  Color grey2=Color(0xFFEBEBEB);
  Color trackColor=Color(0xffEFBD55);
  Color trackTextColor=Color(0xffACACAC);
+ Color borderColor=Color(0xffE7E7E7);
 
  Border gridBottomborder= Border(bottom: BorderSide(color: addNewTextFieldBorder.withOpacity(0.5)));
  TextStyle bgColorTS14=TextStyle(fontFamily: 'RR',color: bgColor,fontSize: 14);
@@ -62,6 +63,13 @@ const Color addNewTextFieldFocusBorder=Color(0xFF6B6B6B);
  double attWidth=10;
  double textFieldBR=10;
 
+ Duration animeDuration=Duration(milliseconds: 300);
+ Cubic animeCurve=Curves.easeIn;
+
+
+ ts10(Color color,{String fontfamily='RR'}){
+  return TextStyle(fontSize: 10,fontFamily: fontfamily,color: color,letterSpacing: 0.1);
+ }
  ts12(Color color,{String fontfamily='RR'}){
   return TextStyle(fontSize: 12,fontFamily: fontfamily,color: color,letterSpacing: 0.1);
  }
