@@ -1,4 +1,5 @@
 import 'package:ecommerce_user/notifiers/themeNotifier.dart';
+import 'package:ecommerce_user/pages/chat/chat.dart';
 import 'package:ecommerce_user/pages/myOrder/myOrderDetails.dart';
 import 'package:ecommerce_user/pages/profile/myProfile.dart';
 import 'package:ecommerce_user/styles/constants.dart';
@@ -126,6 +127,15 @@ class _MasterpageState extends State<Masterpage> {
                     scaffoldkey.currentState!.openEndDrawer();
                   },
                 ),
+                DrawerContent(
+                  title: 'Chat',
+                  ontap: (){
+                    setState(() {
+                      menuSel=7;
+                    });
+                    scaffoldkey.currentState!.openEndDrawer();
+                  },
+                ),
                  Spacer(),
                 DrawerContent(
                   title: 'LogOut',
@@ -166,7 +176,13 @@ class _MasterpageState extends State<Masterpage> {
 
               scaffoldkey.currentState!.openDrawer();
             },
-          )  :Container(),
+          )   :menuSel==7?ChatScreen (
+            voidCallback:(){
+
+              scaffoldkey.currentState!.openDrawer();
+            },
+          )
+              :Container(),
         ),
       ),
 

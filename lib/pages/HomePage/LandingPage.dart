@@ -279,10 +279,41 @@ class _HomePageState extends State<HomePage> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 10.0),
-                                  child: Text('Featured Brands',style: TextStyle(fontFamily:'RB',fontSize: 18,color: Color(0xff000000),fontWeight: FontWeight.bold),),
+                                Container(
+                                  width: SizeConfig.screenWidth,
+                                  margin: EdgeInsets.only(left: 10,right: 10),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Text('Featured Brands',style: TextStyle(fontFamily:'RB',fontSize: 18,color: Color(0xff000000),fontWeight: FontWeight.bold),),
+                                      Row(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(right: 8.0),
+                                            child: GestureDetector(
+                                                onTap: (){
+                                                  Navigator.push(context, MaterialPageRoute(builder: (ctx)=>ViewAllItems()));
+                                                },
+                                                child: Text('View All',style: TextStyle(fontFamily: 'RR',fontSize: 14,color:tn.primaryColor),)),
+                                          ),
+                                          Container(
+                                              width: 20,
+                                              height: 20,
+                                              decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.
+                                                  circular(5.0),
+                                                  //border: Border.all(color: Color(0xff5D5C51),style:BorderStyle.solid )
+                                                  color:tn.primaryColor
+                                              ) ,
+                                              child:   Icon(Icons.chevron_right,color: Color(0xffffffff),size: 15,)
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
+
                                 Container(
                                     width: SizeConfig.screenWidth,
                                     height: 140,
@@ -331,42 +362,185 @@ class _HomePageState extends State<HomePage> {
                               ],
                             ),
                             SizedBox(height: 10,),
-                            Container(
-                              width: SizeConfig.screenWidth,
-                              margin: EdgeInsets.only(left: 10,right: 10),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text('Top Sale',style: TextStyle(fontFamily:'RB',fontSize: 18,color: Color(0xff000000),fontWeight: FontWeight.bold),),
-                                  Row(
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: SizeConfig.screenWidth,
+                                  margin: EdgeInsets.only(left: 10,right: 10),
+                                  child: Row(
+                                //    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(right: 8.0),
-                                        child: GestureDetector(
-                                          onTap: (){
-                                            Navigator.push(context, MaterialPageRoute(builder: (ctx)=>ViewAllItems()));
-                                          },
-                                            child: Text('View All',style: TextStyle(fontFamily: 'RR',fontSize: 14,color:tn.primaryColor),)),
-                                      ),
+                                      Text('Today\'s Deal   ',style: TextStyle(fontFamily:'RB',fontSize: 18,color: Color(0xff000000),fontWeight: FontWeight.bold),),
                                       Container(
-                                          width: 20,
-                                          height: 20,
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.
-                                              circular(5.0),
-                                              //border: Border.all(color: Color(0xff5D5C51),style:BorderStyle.solid )
-                                              color:tn.primaryColor
-                                          ) ,
-                                          child:   Icon(Icons.chevron_right,color: Color(0xffffffff),size: 15,)
+                                        color: tn.primaryColor1,
+                                        padding: EdgeInsets.fromLTRB(3, 1, 3, 1),
+                                        child: Text("2:2:01",style: ts14(Colors.white),),
+                                      ),
+                                      Spacer(),
+                                      Row(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(right: 8.0),
+                                            child: GestureDetector(
+                                                onTap: (){
+                                                  Navigator.push(context, MaterialPageRoute(builder: (ctx)=>ViewAllItems()));
+                                                },
+                                                child: Text('View All',style: TextStyle(fontFamily: 'RR',fontSize: 14,color:tn.primaryColor),)),
+                                          ),
+                                          Container(
+                                              width: 20,
+                                              height: 20,
+                                              decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.
+                                                  circular(5.0),
+                                                  //border: Border.all(color: Color(0xff5D5C51),style:BorderStyle.solid )
+                                                  color:tn.primaryColor
+                                              ) ,
+                                              child:   Icon(Icons.chevron_right,color: Color(0xffffffff),size: 15,)
+                                          ),
+                                        ],
                                       ),
                                     ],
                                   ),
-                                ],
-                              ),
+                                ),
+
+                                Container(
+                                    width: SizeConfig.screenWidth,
+                                    height: 140,
+                                    padding: EdgeInsets.only(left: 10,top: 10),
+                                    child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: 3,
+                                      physics: BouncingScrollPhysics(),
+                                      itemBuilder: (ctx,i){
+                                        return   Container(
+                                          margin: EdgeInsets.only(right: 10.0),
+                                          width:SizeConfig.screenWidth!*0.6,
+                                          height: 140,
+                                          child: Stack(
+                                            children: [
+                                              Container(
+                                                child: Image.asset('assets/offer-slider.png',fit: BoxFit.cover,),
+                                              ),
+                                              Container(
+                                                margin: EdgeInsets.only(left: 20,top: 10),
+                                                child: Column(
+                                                  mainAxisAlignment: MainAxisAlignment.start,
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text('60 % Offer',style: TextStyle(fontFamily: 'RI',fontSize: 18,color: Color(0xffF82023),fontWeight: FontWeight.bold),),
+                                                    Text('First User Use this promo',style: TextStyle(fontFamily: 'RI',fontSize: 12,color: Color(0xff5D5C51)),),
+                                                    SizedBox(height: 2,),
+                                                    Container(
+                                                      padding: EdgeInsets.fromLTRB(8,3,8,3),
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(5.0),
+                                                        color:Color(0xff6A8528),
+                                                      ) ,
+                                                      child: Text('WELCOME60',style: TextStyle(fontFamily: 'RR',fontSize: 12,color: Color(0xffffffff)),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    )
+                                ),
+                              ],
                             ),
-                            SizedBox(height: 15,),
-                            Container(
+                            SizedBox(height: 10,),
+
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: SizeConfig.screenWidth,
+                                  margin: EdgeInsets.only(left: 10,right: 10),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Text('Top Sale',style: TextStyle(fontFamily:'RB',fontSize: 18,color: Color(0xff000000),fontWeight: FontWeight.bold),),
+                                      Row(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(right: 8.0),
+                                            child: GestureDetector(
+                                                onTap: (){
+                                                  Navigator.push(context, MaterialPageRoute(builder: (ctx)=>ViewAllItems()));
+                                                },
+                                                child: Text('View All',style: TextStyle(fontFamily: 'RR',fontSize: 14,color:tn.primaryColor),)),
+                                          ),
+                                          Container(
+                                              width: 20,
+                                              height: 20,
+                                              decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.
+                                                  circular(5.0),
+                                                  //border: Border.all(color: Color(0xff5D5C51),style:BorderStyle.solid )
+                                                  color:tn.primaryColor
+                                              ) ,
+                                              child:   Icon(Icons.chevron_right,color: Color(0xffffffff),size: 15,)
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                    width: SizeConfig.screenWidth,
+                                    height: 140,
+                                    padding: EdgeInsets.only(left: 10,top: 10),
+                                    child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: 3,
+                                      physics: BouncingScrollPhysics(),
+                                      itemBuilder: (ctx,i){
+                                        return   Container(
+                                          margin: EdgeInsets.only(right: 10.0),
+                                          width:SizeConfig.screenWidth!*0.6,
+                                          height: 140,
+                                          child: Stack(
+                                            children: [
+                                              Container(
+                                                child: Image.asset('assets/offer-slider.png',fit: BoxFit.cover,),
+                                              ),
+                                              Container(
+                                                margin: EdgeInsets.only(left: 20,top: 10),
+                                                child: Column(
+                                                  mainAxisAlignment: MainAxisAlignment.start,
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text('60 % Offer',style: TextStyle(fontFamily: 'RI',fontSize: 18,color: Color(0xffF82023),fontWeight: FontWeight.bold),),
+                                                    Text('First User Use this promo',style: TextStyle(fontFamily: 'RI',fontSize: 12,color: Color(0xff5D5C51)),),
+                                                    SizedBox(height: 2,),
+                                                    Container(
+                                                      padding: EdgeInsets.fromLTRB(8,3,8,3),
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(5.0),
+                                                        color:Color(0xff6A8528),
+                                                      ) ,
+                                                      child: Text('WELCOME60',style: TextStyle(fontFamily: 'RR',fontSize: 12,color: Color(0xffffffff)),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    )
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 20,),
+                            /*Container(
                                 child:isGridView? Padding(
                                   padding: EdgeInsets.only(left: 10,right: 10),
                                   child: Wrap(
@@ -697,7 +871,7 @@ class _HomePageState extends State<HomePage> {
                                       }
                                   ),
                                 )
-                            )
+                            )*/
                           ],
                         ),
                       ),
