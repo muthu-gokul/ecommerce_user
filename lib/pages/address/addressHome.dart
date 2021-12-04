@@ -48,23 +48,57 @@ class _AddressHomePageState extends State<AddressHomePage>with TickerProviderSta
                     shrinkWrap: true,
                     itemBuilder: (ctx,i){
                       return Container(
-                        height: 100,
+                        height: 110,
                         margin: EdgeInsets.fromLTRB(0, 0, 0, 15),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: grey2
                         ),
+                        clipBehavior: Clip.antiAlias,
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                       //   mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            Row(
+                              children: [
+                                Spacer(),
+                                Container(
+                                  height: 34,
+                                  width: 40,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(15),
+                                      ),
+                                      color: Colors.transparent
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Icon(Icons.edit,size: 20,color: grey,),
+                                )
+                              ],
+                            ),
                             Text("Delivery Address",style: ts12(text1,fontfamily: 'RM'),),
-                            SizedBox(height: 7,),
+                            SizedBox(height: 4,),
                             Container(
                               width: SizeConfig.screenWidth!-50,
                               child: Text("No: 4B/7, Sai Sadan, 1st Floor, MMDA 1st Main Rd, Maduravoyal, Chennai, Tamil Nadu 600095",
                                 style: ts12(text1,fontfamily: 'RR'),textAlign: TextAlign.center,
                               ),
-                            )
+                            ),
+                            Spacer(),
+                            Row(
+                              children: [
+                                Spacer(),
+                                Container(
+                                  height: 30,
+                                  width: 40,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(15),
+                                    ),
+                                    color: tn.primaryColor1
+                                  ),
+                                )
+                              ],
+                            ),
                           ],
                         ),
                       );
