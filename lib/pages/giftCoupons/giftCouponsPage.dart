@@ -95,6 +95,7 @@ class _GiftCouponsPageState extends State<GiftCouponsPage>{
                                       ],
                                     ),
                                   ),
+
                                 ),
                                 for(int i=0;i<20;i++)
                                   Container(
@@ -134,6 +135,7 @@ class _GiftCouponsPageState extends State<GiftCouponsPage>{
                                               onTap: (){
                                                 Navigator.push(context, MaterialPageRoute(builder: (ctx)=>ShareGiftCard()
                                                 ));
+
                                               },
                                               child:Icon(Icons.share_outlined,color: grey,)
                                           ),
@@ -194,7 +196,6 @@ class _GiftCouponsPageState extends State<GiftCouponsPage>{
                               ],
                             ),
                           ),
-
                         ],
                       ),
                     ),
