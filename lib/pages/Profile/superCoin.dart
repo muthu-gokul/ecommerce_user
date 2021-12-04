@@ -42,7 +42,7 @@ class _SuperCoinsState extends State<SuperCoins> {
             children: [
               Container(
                 width: SizeConfig.screenWidth,
-                height:SizeConfig.screenHeight!-400 ,
+                height:400 ,
                 child: Stack(
                   alignment: AlignmentDirectional.topCenter,
                   children: [
@@ -116,7 +116,7 @@ class _SuperCoinsState extends State<SuperCoins> {
                       children: [
                         Container(
                           width: width,
-                          height: 80,
+                          //height: 85,
                           margin: EdgeInsets.only(left: 10.0,right: 10.0,),
                           padding: const EdgeInsets.all(10.0),
                           decoration: BoxDecoration(
@@ -134,6 +134,7 @@ class _SuperCoinsState extends State<SuperCoins> {
                                       Container(
                                           child:Text('${litems[i].name}',style: TextStyle(fontFamily: 'RM',fontSize: 16,color: text1,),)
                                       ),
+                                      SizedBox(height: 5,),
                                       Row(
                                         children: [
                                           Container(
@@ -142,6 +143,7 @@ class _SuperCoinsState extends State<SuperCoins> {
                                           Text('${litems[i].id}',style: TextStyle(fontFamily: 'RR',fontSize: 14,color:text1.withOpacity(0.9),),)
                                         ],
                                       ),
+                                      SizedBox(height: 5,),
                                       Row(
                                         children: [
                                           Container(

@@ -40,11 +40,11 @@ class _MyProfileState extends State<MyProfile> {
             children: [
               Container(
                 width: SizeConfig.screenWidth,
-                height:SizeConfig.screenHeight!-400 ,
+                height:400 ,
                 child: Stack(
                   alignment: AlignmentDirectional.topCenter,
                   children: [
-                   Container(
+                    Container(
                      width: width,
                      height: 250,
                      color: Color(0XFFEBEBEB),
@@ -52,7 +52,16 @@ class _MyProfileState extends State<MyProfile> {
                      child:Row(
                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                        children: [
-                         CustomAppBar(title: "My profile",),
+                         CustomAppBar(
+                           title: "My profile",
+                           prefix: IconButton(onPressed: (){
+                             widget.voidCallback();
+                             //  Navigator.push(context, MaterialPageRoute(builder: (ctx)=>AddressHomePage()));
+                           },
+                             icon: Image.asset('assets/menu.png',width:20,color: Colors.black,),
+                             //   icon: Icon(Icons.menu,color: Colors.white,size: 30,),
+                           ),
+                         ),
                          GestureDetector(
                            onTap: (){
                               Navigator.push(context, MaterialPageRoute(builder: (ctx)=>MyProfileEdit()));
@@ -126,7 +135,7 @@ class _MyProfileState extends State<MyProfile> {
                 ),
               ),
               Container(
-                height: 370,
+                height: SizeConfig.screenHeight!-450,
                 child: SingleChildScrollView(
                   child: Wrap(
                     alignment: WrapAlignment.start,

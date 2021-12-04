@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
   String title;
-  CustomAppBar({required this.title});
+  Widget? prefix;
+  CustomAppBar({required this.title,this.prefix});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,7 +16,7 @@ class CustomAppBar extends StatelessWidget {
       // width: SizeConfig.screenWidth,
       child: Row(
         children: [
-          GestureDetector(
+          prefix==null?GestureDetector(
             onTap:(){
               Navigator.pop(context);
             },
@@ -25,7 +26,7 @@ class CustomAppBar extends StatelessWidget {
                 color: Colors.transparent,
                 child: Icon(Icons.arrow_back_ios_new_outlined,color: text1,size: 20,)
             ),
-          ),
+          ):prefix!,
           Text(title,style: ts16(text1,fontfamily: 'RM'),)
         ],
       ),

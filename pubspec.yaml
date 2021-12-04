@@ -37,6 +37,9 @@ dependencies:
   carousel_slider:
   flutter_svg:
   provider:
+  scutiwidgets:
+    git:
+      url: https://github.com/muthu-gokul/scutiwidgets.git
 dev_dependencies:
   flutter_test:
     sdk: flutter
