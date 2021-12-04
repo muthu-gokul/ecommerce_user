@@ -1,5 +1,6 @@
 
 import 'package:ecommerce_user/notifiers/themeNotifier.dart';
+import 'package:ecommerce_user/pages/myOrder/deliveryDetail.dart';
 import 'package:ecommerce_user/styles/constants.dart';
 import 'package:ecommerce_user/styles/size.dart';
 import 'package:ecommerce_user/widgets/companySettingsTextField.dart';
@@ -97,81 +98,86 @@ class _OrderNoDetailsState extends State<OrderNoDetails> {
                     SizedBox(height:10,),
                     Align(
                       alignment: Alignment.center,
-                      child: Container(
-                      margin: EdgeInsets.only(bottom: 10),
-                      width: wid3,
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (ctx)=>DeliveryDetails()));
+                        },
+                        child: Container(
+                        margin: EdgeInsets.only(bottom: 10),
+                        width: wid3,
                      // padding: EdgeInsets.only(left: 10,right: 10),
-                      height:80,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: Color(0xffffffff),
-                      ) ,
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Positioned(
-                            top: 10,
-                            child: Container(
-                              width: wid3,
-                              height: 30,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  trackCircle(true, 1),
-                                  dash(1),
-                                  trackCircle(true, 2),
-                                  dash(0.5),
-                                  trackCircle(false, 3),
-                                  dash(0.0),
-                                  trackCircle(false, 4),
+                        height:80,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Color(0xffffffff),
+                        ) ,
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Positioned(
+                              top: 10,
+                              child: Container(
+                                width: wid3,
+                                height: 30,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    trackCircle(true, 1),
+                                    dash(1),
+                                    trackCircle(true, 2),
+                                    dash(0.5),
+                                    trackCircle(false, 3),
+                                    dash(0.0),
+                                    trackCircle(false, 4),
 
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                          Positioned(
-                            top: 43,
-                            child: Container(
-                              width: wid3,
-                              height: 30,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  trackText("Ordered", "20-11-2021", true),
-                                  SizedBox(width: (wid3*0.05),),
-                                  trackText("Shipped", "20-11-2021", true),
-                                  SizedBox(width: (wid3*0.05),),
-                                  trackText("Out of delivery", "20-11-2021", false),
-                                  SizedBox(width: (wid3*0.05),),
-                                  trackText("Delivery", "20-11-2021", false),
+                            Positioned(
+                              top: 43,
+                              child: Container(
+                                width: wid3,
+                                height: 30,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    trackText("Ordered", "20-11-2021", true),
+                                    SizedBox(width: (wid3*0.05),),
+                                    trackText("Shipped", "20-11-2021", true),
+                                    SizedBox(width: (wid3*0.05),),
+                                    trackText("Out of delivery", "20-11-2021", false),
+                                    SizedBox(width: (wid3*0.05),),
+                                    trackText("Delivery", "20-11-2021", false),
 
-                                  // trackCircle(true, 1),
-                                  // dash(1),
-                                  // trackCircle(true, 2),
-                                  // dash(0.5),
-                                  // trackCircle(false, 3),
-                                  // dash(0.0),
-                                  // trackCircle(false, 4),
+                                    // trackCircle(true, 1),
+                                    // dash(1),
+                                    // trackCircle(true, 2),
+                                    // dash(0.5),
+                                    // trackCircle(false, 3),
+                                    // dash(0.0),
+                                    // trackCircle(false, 4),
 
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                          /*Positioned(
-                            width: width*0.85,
-                            bottom: 10,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text('Confirmed',style:TextStyle(color: Color(0xffEFBD55),fontSize: 14,fontFamily:'RR',)),
-                                Text('Cooking',style:TextStyle(color: Color(0xffBFBFBF),fontSize: 14,fontFamily:'RR',)),
-                                Text('Ontheway',style:TextStyle(color: Color(0xffBFBFBF),fontSize: 14,fontFamily:'RR',)),
-                                Text('Delivered',style:TextStyle(color: Color(0xffBFBFBF),fontSize: 14,fontFamily:'RR',)),
-                              ],
-                            ),
-                          ),*/
-                          ],
-                      ),
+                            /*Positioned(
+                              width: width*0.85,
+                              bottom: 10,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Confirmed',style:TextStyle(color: Color(0xffEFBD55),fontSize: 14,fontFamily:'RR',)),
+                                  Text('Cooking',style:TextStyle(color: Color(0xffBFBFBF),fontSize: 14,fontFamily:'RR',)),
+                                  Text('Ontheway',style:TextStyle(color: Color(0xffBFBFBF),fontSize: 14,fontFamily:'RR',)),
+                                  Text('Delivered',style:TextStyle(color: Color(0xffBFBFBF),fontSize: 14,fontFamily:'RR',)),
+                                ],
+                              ),
+                            ),*/
+                            ],
+                        ),
+                        ),
                       ),
                     ),
 

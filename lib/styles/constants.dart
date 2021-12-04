@@ -1,5 +1,18 @@
  import 'package:flutter/material.dart';
 
+ String decimalReg=r'^\d+\.?\d{0,2}';
+
+ int phoneNoLength=10;
+ int zipcodeLength=6;
+ String digitRegEx='[0-9]';
+ String alphaSpaceRegEx='[A-Za-z ]';
+ String addressRegEx='[A-Za-z0-9-,_/*+()@. ]';
+ //String currentDate=DateFormat("dd-MM-yyyy").format(DateTime.now());
+ String dbDateFormat="dd-MM-yyyy";
+
+ //var formatCurrency = NumberFormat.currency(locale: 'HI',name: "");
+
+
 Color yellowColor=Color(0xFF158BCC);
 Color bgColor=Color(0xFF4267F6);
 Color gridBodyBgColor=Color(0xFFFFFFFF);

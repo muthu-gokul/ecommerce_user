@@ -11,23 +11,26 @@ class CompanySettingsTextField extends StatelessWidget {
   bool enable;
   double borderRadius;
   EdgeInsets margin;
+  Color color;
+  double? width;
   CompanySettingsTextField({required this.hintText,required this.img,this.enable=true,this.borderRadius=30.0,
-  this.margin=const EdgeInsets.only(left: 0)});
+  this.margin=const EdgeInsets.only(left: 0),this.color=Colors.white,this.width});
 
   @override
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadius),
-        color: Colors.white,
+        color: color,
       ),
       alignment: Alignment.centerLeft,
       margin: margin,
-      //width: SizeConfig.width5,
+      width: width,
       child: TextField(
         enabled: enable,
         textAlign: TextAlign.left,
         maxLines: 1,
+
         style:TextStyle(fontSize: 16,fontFamily:'RR',color:Color(0xff7F7F7F),),
 
         decoration: InputDecoration(
