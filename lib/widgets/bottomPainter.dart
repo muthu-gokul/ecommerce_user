@@ -102,12 +102,12 @@ class BottomNavi extends StatelessWidget {
       // height:_keyboardVisible?0:  70,
       height: 65,
       decoration: BoxDecoration(
-          color: Colors.white12.withOpacity(0.1),
+          color: Colors.white12.withOpacity(0.0),
           // color: Color(0xFF787878).withOpacity(0.1),
           boxShadow: [
             BoxShadow(
               color: Color(0xFF787878).withOpacity(0.2),
-              spreadRadius: 5,
+              spreadRadius: 0,
               blurRadius: 25,
               offset: Offset(0, 0), // changes position of shadow
             )
