@@ -13,6 +13,8 @@ const Color addNewTextFieldFocusBorder=Color(0xFF6B6B6B);
  Color text1=Color(0xFF464646);
  Color text2=Color(0xFFFFFFFF);
  Color grey2=Color(0xFFEBEBEB);
+ Color trackColor=Color(0xffEFBD55);
+ Color trackTextColor=Color(0xffACACAC);
 
  Border gridBottomborder= Border(bottom: BorderSide(color: addNewTextFieldBorder.withOpacity(0.5)));
  TextStyle bgColorTS14=TextStyle(fontFamily: 'RR',color: bgColor,fontSize: 14);

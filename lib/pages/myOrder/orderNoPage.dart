@@ -3,6 +3,7 @@ import 'package:ecommerce_user/notifiers/themeNotifier.dart';
 import 'package:ecommerce_user/styles/constants.dart';
 import 'package:ecommerce_user/styles/size.dart';
 import 'package:ecommerce_user/widgets/companySettingsTextField.dart';
+import 'package:ecommerce_user/widgets/linearProgressBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -18,12 +19,13 @@ class OrderNoDetails extends StatefulWidget {
 
 class _OrderNoDetailsState extends State<OrderNoDetails> {
   @override
-  late  double width,height,width2,height2;
+  late  double width,height,width2,height2,wid3;
   Widget build(BuildContext context) {
     width=MediaQuery.of(context).size.width;
     height=MediaQuery.of(context).size.height;
     width2=width-16;
     height2=height-16;
+    wid3=width*0.8;
     SizeConfig().init(context);
     return SafeArea(
         child: Consumer<ThemeNotifier>(
@@ -92,261 +94,226 @@ class _OrderNoDetailsState extends State<OrderNoDetails> {
                         ],
                       ),
                     ),
-                   SizedBox(height:10,),
-                  Container(
-                    margin: EdgeInsets.only(bottom: 10),
-                    width: width*0.90,
-                    padding: EdgeInsets.only(left: 10,right: 10),
-                    height:90,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: Color(0xffffffff),
-                    ) ,
-                    child: Stack(
-                      children: [
-                        Align(
-                          alignment: Alignment.center,
-                          child: Container(
-                            width: width*0.75,
-                            height: 3,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30.0),
-                              // border: Border.all(color: Color(0xffEBEBEB)),
-                              color: Color(0xffDCDCDC),
+                    SizedBox(height:10,),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      width: wid3,
+                     // padding: EdgeInsets.only(left: 10,right: 10),
+                      height:80,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Color(0xffffffff),
+                      ) ,
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Positioned(
+                            top: 10,
+                            child: Container(
+                              width: wid3,
+                              height: 30,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  trackCircle(true, 1),
+                                  dash(1),
+                                  trackCircle(true, 2),
+                                  dash(0.5),
+                                  trackCircle(false, 3),
+                                  dash(0.0),
+                                  trackCircle(false, 4),
+
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Container(
-                            width: width*0.4,
-                            height: 3,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30.0),
-                              // border: Border.all(color: Color(0xffEBEBEB)),
-                              color: Color(0xffEFBD55),
+                          Positioned(
+                            top: 43,
+                            child: Container(
+                              width: wid3,
+                              height: 30,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  trackText("Ordered", "20-11-2021", true),
+                                  SizedBox(width: (wid3*0.05),),
+                                  trackText("Shipped", "20-11-2021", true),
+                                  SizedBox(width: (wid3*0.05),),
+                                  trackText("Out of delivery", "20-11-2021", false),
+                                  SizedBox(width: (wid3*0.05),),
+                                  trackText("Delivery", "20-11-2021", false),
+
+                                  // trackCircle(true, 1),
+                                  // dash(1),
+                                  // trackCircle(true, 2),
+                                  // dash(0.5),
+                                  // trackCircle(false, 3),
+                                  // dash(0.0),
+                                  // trackCircle(false, 4),
+
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        Align(
-                          alignment: Alignment.center,
-                          child: Container(
-                            width: width*0.95,
-                            height: 30,
+                          /*Positioned(
+                            width: width*0.85,
+                            bottom: 10,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Container(
-                                  width:30 ,
-                                  height:30 ,
-                                  decoration: BoxDecoration(
-                                    //   color: Color(0xffE8485A),
-                                      color: Color(0xffEFBD55),
-                                      shape: BoxShape.circle,
-                                    border: Border.all(color: text2,width: 2)
-                                  ),
-                                  child: Icon(Icons.menu,color: Colors.white,size: 10,),
-                                ),
-                                Container(
-                                  width:30 ,
-                                  height:30 ,
-                                  decoration: BoxDecoration(
-                                    //   color: Color(0xffE8485A),
-                                      color: Color(0xffEFBD55),
-                                      shape: BoxShape.circle,
-                                      border: Border.all(color: text2,width: 2)
-                                  ),
-                                  child: Icon(Icons.menu,color: Colors.white,size: 10,),
-                                ),
-                                Container(
-                                  width:25 ,
-                                  height:25 ,
-                                  decoration: BoxDecoration(
-                                    //   color: Color(0xffE8485A),
-                                      color:text2,
-                                      shape: BoxShape.circle,
-                                      border:Border.all(color:Color(0xffDCDCDC) ,width: 2)
-                                  ),
-                                ),
-                                Container(
-                                  width:25 ,
-                                  height:25 ,
-                                  decoration: BoxDecoration(
-                                    //   color: Color(0xffE8485A),
-                                      color:text2,
-                                      shape: BoxShape.circle,
-                                      border:Border.all(color:Color(0xffDCDCDC) ,width: 2)
-                                  ),
-                                ),
+                                Text('Confirmed',style:TextStyle(color: Color(0xffEFBD55),fontSize: 14,fontFamily:'RR',)),
+                                Text('Cooking',style:TextStyle(color: Color(0xffBFBFBF),fontSize: 14,fontFamily:'RR',)),
+                                Text('Ontheway',style:TextStyle(color: Color(0xffBFBFBF),fontSize: 14,fontFamily:'RR',)),
+                                Text('Delivered',style:TextStyle(color: Color(0xffBFBFBF),fontSize: 14,fontFamily:'RR',)),
                               ],
                             ),
-                          ),
-                        ),
-                        Positioned(
-                          width: width*0.85,
-                          bottom: 10,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('Confirmed',style:TextStyle(color: Color(0xffEFBD55),fontSize: 14,fontFamily:'RR',)),
-                              Text('Cooking',style:TextStyle(color: Color(0xffBFBFBF),fontSize: 14,fontFamily:'RR',)),
-                              Text('Ontheway',style:TextStyle(color: Color(0xffBFBFBF),fontSize: 14,fontFamily:'RR',)),
-                              Text('Delivered',style:TextStyle(color: Color(0xffBFBFBF),fontSize: 14,fontFamily:'RR',)),
-                            ],
-                          ),
-                        ),
-                        ],
-                    ),
-                  ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        padding: EdgeInsets.only(top: 10),
-                        height: 300,
-                        width:width*0.95,
-                        child: ListView.builder(
-                            physics: BouncingScrollPhysics(),
-                            itemCount: 7,
-                            itemBuilder: (ctx,i){
-                          return  Container(
-                            margin: EdgeInsets.only(bottom: 10),
-                            width: width*0.95,
-                            height:60,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.0),
-                              color: Color(0xffffffff),
-                            ) ,
-                            child: Container(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.only(left: 30),
-                                    width: width*0.45,
-                                    child: Text('Tomato Country',style: TextStyle(fontFamily: 'RB',color: Colors.black,fontSize: 14),),
-                                  ),
-
-                                  Container(
-                                    width: width*0.20,
-                                    child: Text.rich(
-                                      TextSpan(
-                                        text: '2',style: TextStyle(fontFamily: 'RB',fontSize: 14,color:text1), // default text style
-                                        children: [
-                                          TextSpan(text: 'kg', style: TextStyle(fontFamily: 'RR',fontSize: 12,color:text1.withOpacity(0.8))),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: width*0.30,
-                                    padding: EdgeInsets.only(left: 30),
-                                    child: Text( 'Rs.23.00', style: TextStyle(fontSize: 14,fontFamily: 'RB',color:tn.primaryColor,),),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-                        }),
-                        ),
-                    ),
-                     SizedBox(height: 10,),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        // margin: EdgeInsets.all(20),
-                        //   color: Colors.red,
-                          width: width*0.8,
-                        child: Column(
-                         crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              child: Text('Price Details',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff878787),fontWeight: FontWeight.w600),),
-                            ),
-                            SizedBox(height: 15,),
-                            Container(
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text('Price (1 items)',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff2E2E2D),),),
-                                  Text('₹3,250',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff2E2E2D),),)
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: 15,),
-                            Container(
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text('Discount',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff2E2E2D),),),
-                                  Text('- ₹1,051',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: tn.primaryColor),)
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: 15,),
-                            Container(
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text('Delivery Charges',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff2E2E2D),),),
-                                  Text('FREE',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: tn.primaryColor,),)
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: 20,),
-                            Container(
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text('Total Amount',style: TextStyle(fontSize: 14,fontFamily: 'RB',color: Color(0xff2E2E2D),fontWeight: FontWeight.w600),),
-                                  Text('₹2,199',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff2E2E2D),fontWeight: FontWeight.w600),)
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: 5,),
-                            Container(
-                              child: Text('You will save ₹1,050 on this order',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: tn.primaryColor,fontWeight: FontWeight.w500),),
-                            ),
+                          ),*/
                           ],
-                        ),
+                      ),
                       ),
                     ),
+
+                     Expanded(
+                      // height: SizeConfig.screenHeight!-210,
+                       child: ListView(
+                         children: [
+                           //Items
+                           Align(
+                             alignment: Alignment.center,
+                             child: Container(
+                               padding: EdgeInsets.only(top: 10),
+                                height: 60.0*7,
+                               width:width*0.95,
+                               child: ListView.builder(
+                                   physics: NeverScrollableScrollPhysics(),
+                                   itemCount: 7,
+                                   itemBuilder: (ctx,i){
+                                     return  Container(
+                                       margin: EdgeInsets.only(bottom: 10),
+                                       width: width*0.95,
+                                       height:60,
+                                       decoration: BoxDecoration(
+                                         borderRadius: BorderRadius.circular(15.0),
+                                         color: Color(0xffffffff),
+                                       ) ,
+                                       child: Container(
+                                         child: Row(
+                                           mainAxisAlignment: MainAxisAlignment.center,
+                                           crossAxisAlignment: CrossAxisAlignment.center,
+                                           children: [
+                                             Container(
+                                               padding: EdgeInsets.only(left: 30),
+                                               width: width*0.45,
+                                               child: Text('Tomato Country',style: TextStyle(fontFamily: 'RB',color: Colors.black,fontSize: 14),),
+                                             ),
+
+                                             Container(
+                                               width: width*0.20,
+                                               child: Text.rich(
+                                                 TextSpan(
+                                                   text: '2',style: TextStyle(fontFamily: 'RB',fontSize: 14,color:text1), // default text style
+                                                   children: [
+                                                     TextSpan(text: 'kg', style: TextStyle(fontFamily: 'RR',fontSize: 12,color:text1.withOpacity(0.8))),
+                                                   ],
+                                                 ),
+                                               ),
+                                             ),
+                                             Container(
+                                               width: width*0.30,
+                                               padding: EdgeInsets.only(left: 30),
+                                               child: Text( 'Rs.23.00', style: TextStyle(fontSize: 14,fontFamily: 'RB',color:tn.primaryColor,),),
+                                             ),
+                                           ],
+                                         ),
+                                       ),
+                                     );
+                                   }),
+                             ),
+                           ),
+                           SizedBox(height: 10,),
+                           Align(
+                             alignment: Alignment.center,
+                             child: Container(
+                               height: 180,
+                               // margin: EdgeInsets.all(20),
+                               //   color: Colors.red,
+                               width: width*0.8,
+                               child: Column(
+                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                 children: [
+                                   Container(
+                                     child: Text('Price Details',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff878787),fontWeight: FontWeight.w600),),
+                                   ),
+                                   SizedBox(height: 15,),
+                                   Container(
+                                     child: Row(
+                                       crossAxisAlignment: CrossAxisAlignment.center,
+                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                       children: [
+                                         Text('Price (1 items)',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff2E2E2D),),),
+                                         Text('₹3,250',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff2E2E2D),),)
+                                       ],
+                                     ),
+                                   ),
+                                   SizedBox(height: 15,),
+                                   Container(
+                                     child: Row(
+                                       crossAxisAlignment: CrossAxisAlignment.center,
+                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                       children: [
+                                         Text('Discount',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff2E2E2D),),),
+                                         Text('- ₹1,051',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: tn.primaryColor),)
+                                       ],
+                                     ),
+                                   ),
+                                   SizedBox(height: 15,),
+                                   Container(
+                                     child: Row(
+                                       crossAxisAlignment: CrossAxisAlignment.center,
+                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                       children: [
+                                         Text('Delivery Charges',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff2E2E2D),),),
+                                         Text('FREE',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: tn.primaryColor,),)
+                                       ],
+                                     ),
+                                   ),
+                                   SizedBox(height: 20,),
+                                   Container(
+                                     child: Row(
+                                       crossAxisAlignment: CrossAxisAlignment.center,
+                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                       children: [
+                                         Text('Total Amount',style: TextStyle(fontSize: 14,fontFamily: 'RB',color: Color(0xff2E2E2D),fontWeight: FontWeight.w600),),
+                                         Text('₹2,199',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff2E2E2D),fontWeight: FontWeight.w600),)
+                                       ],
+                                     ),
+                                   ),
+                                   SizedBox(height: 5,),
+                                   Container(
+                                     child: Text('You will save ₹1,050 on this order',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: tn.primaryColor,fontWeight: FontWeight.w500),),
+                                   ),
+                                 ],
+                               ),
+                             ),
+                           ),
+                           Container(
+                             width:  SizeConfig.screenWidth,
+                             padding: EdgeInsets.only(left: 25,right: 25),
+                             height: 50,
+                             alignment: Alignment.center,
+                             color: Color(0XFFF93737),
+                             child: Text('Cancel this Order',style: ts16(text2,fontfamily: 'RB'),),
+                           )
+                         ],
+                       ),
+                     ),
+
                   ],
                 ),
               ),
-              bottomNavigationBar:  Container(
-                width: SizeConfig.screenWidth,
-                // height:_keyboardVisible?0:  70,
-                height: 65,
-                decoration: BoxDecoration(
-                    color: Color(0XFFF93737),
-                    // color: Color(0xFF787878).withOpacity(0.1),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0xFF787878).withOpacity(0.2),
-                        spreadRadius: 5,
-                        blurRadius: 25,
-                        offset: Offset(0, 0), // changes position of shadow
-                      )
-                    ]
-                ),
-                child: Stack(
-                  children:
-                  [
-                    Container(
-                      width:  SizeConfig.screenWidth,
-                      padding: EdgeInsets.only(left: 25,right: 25),
-                      height: 65,
-                     alignment: Alignment.center,
-                     child: Text('Cancel this Order',style: ts16(text2,fontfamily: 'RB'),),
-                    )
-                  ],
-                ),
-              ),
+
             ),
           ],
         )
@@ -354,6 +321,53 @@ class _OrderNoDetailsState extends State<OrderNoDetails> {
         )
     );
   }
+
+
+
+  trackCircle(bool isCrossed,int index){
+    return Container(
+      width:25 ,
+      height:25 ,
+      alignment: Alignment.center,
+      decoration:isCrossed? BoxDecoration(
+          color: trackColor,
+          shape: BoxShape.circle,
+          border: Border.all(color: text2,width: 0)
+      ):BoxDecoration(
+          color:text2,
+          shape: BoxShape.circle,
+          border:Border.all(color:Color(0xffDCDCDC) ,width: 1.5)
+      ),
+      child: isCrossed?Icon(Icons.done,color: Colors.white,size: 15,):
+      Text("$index",style: ts14(Color(0xffDCDCDC)),),
+    );
+  }
+
+
+  dash(double percentage){
+    return LinearPercentIndicator(
+      leading: Container(),
+      trailing: Container(),
+      padding: EdgeInsets.only(left: 3,right: 3),
+
+      width: (wid3*0.15),
+      lineHeight: 3,
+      percent: percentage,
+      progressColor: trackColor,
+      backgroundColor: Color(0xffEBEBEB),
+    );
+  }
+
+  trackText(String title,String date,bool isCrossed){
+    return  Column(
+      children: [
+        Text(title,style: ts18(isCrossed?trackColor:Color(0xff8C8C8C),fontsize: 10,fontfamily: 'RM'),),
+        Text(date,style: ts18(trackTextColor,fontsize: 10,fontfamily: 'RM'),),
+      ],
+    );
+  }
+
+
 }
 addRemoveBtn(Widget icon){
   return Container(
