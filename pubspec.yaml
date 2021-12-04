@@ -40,6 +40,7 @@ dependencies:
   scutiwidgets:
     git:
       url: https://github.com/muthu-gokul/scutiwidgets.git
+  flutter_rating_bar:
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -68,6 +69,7 @@ flutter:
     - assets/login/
     - assets/slider/
     - assets/items-list/
+    - assets/alert/
     - assets/side-icon/
   # assets:
   #   - images/a_dot_burr.jpeg
