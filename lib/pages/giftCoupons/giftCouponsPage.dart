@@ -1,6 +1,8 @@
 
 
 import 'package:ecommerce_user/notifiers/themeNotifier.dart';
+import 'package:ecommerce_user/pages/giftCoupons/addGiftCard.dart';
+import 'package:ecommerce_user/pages/giftCoupons/shareGiftCard.dart';
 import 'package:ecommerce_user/styles/constants.dart';
 import 'package:ecommerce_user/styles/size.dart';
 import 'package:ecommerce_user/widgets/bottomPainter.dart';
@@ -74,6 +76,82 @@ class _GiftCouponsPageState extends State<GiftCouponsPage>{
                               // runAlignment: WrapAlignment.start,
                               // crossAxisAlignment: WrapCrossAlignment.start,
                               children: [
+                                GestureDetector(
+                                  onTap: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (ctx)=>AddGiftCard()));
+                                  },
+                                  child: Container(
+                                    width: width2*(0.5)-5,
+                                    height: 160,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(color: borderColor),
+                                        color: grey2
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Text("Add new giftcard",style: ts14(text1),)
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                for(int i=0;i<20;i++)
+                                  Container(
+                                    width: width2*(0.5)-5,
+                                    height: 160,
+                                    margin: EdgeInsets.only(bottom: i==19?80:0),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(color: borderColor),
+                                        color: Colors.white
+                                    ),
+                                    child: Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        Column(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Circle(
+                                              hei: 60,
+                                              color: grey2,
+                                            ),
+                                            SizedBox(height: 7,),
+                                            Text("2500.00",style: ts16(text1,fontfamily: 'RB'),),
+                                            SizedBox(height: 3,),
+                                            Container(
+                                              width: width2*(0.35),
+                                              child: Text("Get 2% offers on all category",style: ts12(text1),textAlign: TextAlign.center,),
+                                            ),
+                                            SizedBox(height: 3,),
+                                            Text("30-11-2021 / 9.30AM",style: ts10(trackTextColor,fontfamily: 'RM'),)
+                                          ],
+                                        ),
+                                        Positioned(
+                                          right: 10,
+                                          top: 10,
+                                          child: GestureDetector(
+                                              onTap: (){
+                                                Navigator.push(context, MaterialPageRoute(builder: (ctx)=>ShareGiftCard()
+                                                ));
+                                              },
+                                              child:Icon(Icons.share_outlined,color: grey,)
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                          SingleChildScrollView(
+                            child: Wrap(
+                              spacing: 10,
+                              runSpacing: 10,
+                              // alignment: WrapAlignment.start,
+                              // runAlignment: WrapAlignment.start,
+                              // crossAxisAlignment: WrapCrossAlignment.start,
+                              children: [
 
                                 for(int i=0;i<20;i++)
                                   Container(
@@ -116,76 +194,7 @@ class _GiftCouponsPageState extends State<GiftCouponsPage>{
                               ],
                             ),
                           ),
-                          SingleChildScrollView(
-                            child: Wrap(
-                              spacing: 10,
-                              runSpacing: 10,
-                              // alignment: WrapAlignment.start,
-                              // runAlignment: WrapAlignment.start,
-                              // crossAxisAlignment: WrapCrossAlignment.start,
-                              children: [
-                                Container(
-                                  width: width2*(0.5)-5,
-                                  height: 160,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      border: Border.all(color: borderColor),
-                                      color: grey2
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("Add new giftcard",style: ts14(text1),)
-                                    ],
-                                  ),
-                                ),
-                                for(int i=0;i<20;i++)
-                                  Container(
-                                    width: width2*(0.5)-5,
-                                    height: 160,
-                                    margin: EdgeInsets.only(bottom: i==19?80:0),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        border: Border.all(color: borderColor),
-                                        color: Colors.white
-                                    ),
-                                    child: Stack(
-                                      alignment: Alignment.center,
-                                      children: [
-                                        Column(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            Circle(
-                                              hei: 60,
-                                              color: grey2,
-                                            ),
-                                            SizedBox(height: 7,),
-                                            Text("2500.00",style: ts16(text1,fontfamily: 'RB'),),
-                                            SizedBox(height: 3,),
-                                            Container(
-                                              width: width2*(0.35),
-                                              child: Text("Get 2% offers on all category",style: ts12(text1),textAlign: TextAlign.center,),
-                                            ),
-                                            SizedBox(height: 3,),
-                                            Text("30-11-2021 / 9.30AM",style: ts10(trackTextColor,fontfamily: 'RM'),)
-                                          ],
-                                        ),
-                                        Positioned(
-                                          right: 10,
-                                          top: 10,
-                                          child: GestureDetector(
-                                              onTap: (){
 
-                                              },
-                                              child:Icon(Icons.share_outlined,color: grey,)
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                              ],
-                            ),
-                          ),
                         ],
                       ),
                     ),
