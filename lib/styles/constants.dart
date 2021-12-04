@@ -11,6 +11,7 @@ const Color addNewTextFieldFocusBorder=Color(0xFF6B6B6B);
  Color uploadColor=Color(0xFFC7D0D8);
  Color indicatorColor=Color(0xFF1C1C1C);
  Color text1=Color(0xFF464646);
+ Color text2=Color(0xFFFFFFFF);
  Color grey2=Color(0xFFEBEBEB);
 
  Border gridBottomborder= Border(bottom: BorderSide(color: addNewTextFieldBorder.withOpacity(0.5)));
