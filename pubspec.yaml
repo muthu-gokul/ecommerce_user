@@ -70,6 +70,7 @@ flutter:
     - assets/slider/
     - assets/items-list/
     - assets/alert/
+    - assets/side-icon/
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
