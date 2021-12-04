@@ -5,9 +5,12 @@ import 'package:ecommerce_user/styles/size.dart';
 import 'package:ecommerce_user/widgets/bottomPainter.dart';
 import 'package:ecommerce_user/widgets/companySettingsTextField.dart';
 import 'package:ecommerce_user/widgets/innerShadowTBContainer.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:scutiwidgets/animeDialog.dart';
 
 import 'orderNoPage.dart';
 
@@ -83,20 +86,113 @@ class _MYOrderDetailsState extends State<MYOrderDetails> {
                                       alignment: Alignment.centerLeft,
                                       child: CompanySettingsTextField(hintText: "Search Product", img: "assets/search.png")
                                   ),
-                                  Container(
-                                      width: 40,
-                                      height: 40,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10.0),
-                                        color: tn.primaryColor1,
-                                      ) ,
-                                      child:   Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Image.asset('assets/Filter.png',width: 20,),
-                                        ],
-                                      )
+                                  GestureDetector(
+                                    onTap: (){
+                                      AnimeDialog().slideFromBottomToTop(
+                                          context,
+                                          Scaffold(
+                                            backgroundColor: Colors.transparent,
+                                            body: GestureDetector(
+                                              onTap: (){
+                                                Navigator.pop(context);
+                                              },
+                                              child: Container(
+                                                height: height,
+                                                width: width,
+                                                color: Colors.black54,
+                                                child: Column(
+                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  children: [
+                                                    Container(
+                                                      // height: 600,
+                                                      width: width*0.80,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(15),
+                                                        color: Colors.white,
+                                                      ),
+                                                      padding: EdgeInsets.only(top: 10,bottom: 10),
+                                                      alignment: Alignment.topCenter,
+                                                      child: Column(
+                                                        children: [
+                                                          Image.asset('assets/alert/alert-img.JPG',width: 200,fit: BoxFit.cover,),
+                                                          SizedBox(height: 10,),
+                                                          Text('Order id #1234567',style: ts16(text1),),
+                                                          SizedBox(height: 10,),
+                                                          Text('₹ 2,500.00',style: ts18(text1,fontsize: 28,fontfamily: 'RB'),),
+                                                          SizedBox(height: 10,),
+                                                          Text('(28 Items)',style: ts16(text1.withOpacity(0.7)),),
+                                                          SizedBox(height: 10,),
+                                                          Text('Delivery Successful',style: ts16(Color(0XFF40CA50)),),
+                                                          SizedBox(height: 10,),
+                                                          RatingBar.builder(
+                                                            initialRating: 2.5,
+                                                            minRating: 1,
+                                                            direction: Axis.horizontal,
+                                                            allowHalfRating: true,
+                                                            itemCount: 5,
+                                                            itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
+                                                            unratedColor: text1.withOpacity(0.3),
+                                                            itemBuilder: (context, _) => Icon(
+                                                              Icons.star,
+                                                              color: tn.primaryColor,
+                                                            ),
+                                                            onRatingUpdate: (rating) {
+                                                              print(rating);
+                                                            },
+                                                          ),
+                                                          SizedBox(height: 10,),
+                                                          Text('Please give your feedback',style: ts16(text1.withOpacity(0.7)),),
+                                                          SizedBox(height: 20,),
+                                                          Container(
+                                                            height: 45,
+                                                            width: 100,
+                                                            margin: EdgeInsets.only(bottom: 25),
+                                                            decoration: BoxDecoration(
+                                                                color: tn.primaryColor,
+                                                                borderRadius: BorderRadius.circular(10),
+                                                                boxShadow: [
+                                                                  BoxShadow(
+                                                                    color:tn.primaryColor.withOpacity(0.5),
+                                                                    blurRadius: 10.0, // soften the shadow
+                                                                    spreadRadius: 3, //extend the shadow
+                                                                    offset: Offset(
+                                                                      2.0, // Move to right 10  horizontally
+                                                                      4.0, // Move to bottom 10 Vertically
+                                                                    ),
+                                                                  )
+                                                                ]
+                                                            ),
+                                                            child: Center(
+                                                              //  child: Image.asset("assets/items-list/cart.png",width: 30,),
+                                                                child: Text('Submit',style: ts16(text2),)
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                      );
+                                    },
+                                    child: Container(
+                                        width: 40,
+                                        height: 40,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(10.0),
+                                          color: tn.primaryColor1,
+                                        ) ,
+                                        child:   Row(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Image.asset('assets/Filter.png',width: 20,),
+                                          ],
+                                        )
+                                    ),
                                   ),
                                 ],
                               ),
